@@ -2,13 +2,21 @@
 <html>
 <head>
   <title>TodoManager</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <div class="panel panel-default tasks-container">
+      <div class="panel-heading">
+        <h2 class="app-title">HL Todo Manager</h2>
+      </div>
+      <div class="panel-body">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
