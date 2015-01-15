@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+@import '**/*';
+@import "bootswatch/flatly/variables";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootswatch/flatly/bootswatch";
+@import "font-awesome";
