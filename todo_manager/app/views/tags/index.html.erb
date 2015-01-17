@@ -1,0 +1,32 @@
+<%= link_to raw('<i class="fa fa-plus"></i> New Tag'), 
+    new_tag_path, 
+    class: 'btn btn-sm btn-success main-action-button' %>
+
+<h1>All Tags</h1>
+
+<hr>
+<table class="table table-striped tasks-table">
+  <tr>
+    <th>Name</th>
+    <th>Color</th>
+  </tr>
+ 
+  <% @tags.each do |tag| %>
+    <tr>
+      <td><%= tag.name %></td>
+
+      <td class="tasks-action-column">
+
+        <%= link_to raw('<i class="fa fa-pencil"></i>'), 
+          edit_tag_path(tag), 
+          class: 'btn btn-default btn-xs' %>
+        <%= link_to raw('<i class="fa fa-trash"></i>'), 
+          tag_path(tag),
+          method: :delete,
+          data: { confirm: 'Are you sure?' },
+          class: 'btn btn-default btn-xs' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

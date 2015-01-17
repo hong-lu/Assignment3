@@ -40,6 +40,9 @@
   <% end %>
 </table>
 
+<%= link_to raw('<i class="fa fa-plus"></i> Manage Tags'), 
+    tags_path, 
+    class: 'btn btn-sm btn-success main-action-button' %>
 <h2>All Tags</h2>
 <hr>
 <% Tag.all.each do |t| %>
