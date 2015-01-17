@@ -18,7 +18,11 @@
       <td><%= task.title %></td>
       <td><%= task.text %></td>
       <td><%= task.due_date %></td>
-      <td><%= task.tag_list %></td>
+      <td>
+        <% task.tag_array.each do |tg| %>
+          <span class="label label-info"><%= tg %></span>
+        <% end %>
+      </td>
       <td class="tasks-action-column">
         <%= link_to raw('<i class="fa fa-search"></i>'),
           task_path(task), 
