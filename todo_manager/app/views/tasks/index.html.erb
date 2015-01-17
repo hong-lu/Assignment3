@@ -8,13 +8,15 @@
 <table class="table table-striped tasks-table">
   <tr>
     <th>Title</th>
-    <th colspan="2">Text</th>
+    <th >Text</th>
+    <th colspan="2">Due</th>
   </tr>
  
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task.title %></td>
       <td><%= task.text %></td>
+      <td><%= task.due_date %></td>
       <td class="tasks-action-column">
         <%= link_to raw('<i class="fa fa-search"></i>'),
           task_path(task), 
