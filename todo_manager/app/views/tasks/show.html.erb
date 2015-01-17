@@ -7,6 +7,9 @@
       class: 'btn btn-default btn-sm main-action-button' %>
 
 <h1><%= @task.title %></h1>
+<% @task.tag_array.each do |t| %>
+  <span class="label label-primary"> <span class="tag"><%= link_to t, tag_path(t) %></span></span>
+<% end %>
 <hr>
 <strong> Due at:
   <%= @task.due_date.to_s(:long)%>
@@ -14,10 +17,6 @@
 <p>
   <%= @task.text %>
 </p>
-<% @task.tag_array.each do |tg| %>
-  <span class="label label-info"><%= tg %></span>
-<% end %>
-<br><br>
 <%= link_to raw('<i class="fa fa-pencil"></i> Edit Task'),
       edit_task_path(@task), 
       class: 'btn btn-success btn-sm' %>
