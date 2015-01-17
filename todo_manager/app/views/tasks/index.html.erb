@@ -35,3 +35,9 @@
     </tr>
   <% end %>
 </table>
+
+<h2>All Tags</h2>
+<% Tag.all.each do |t| %>
+  <span class="tag"><%= link_to t.name, tag_path(t.name) %></span>
+<% end %>
+

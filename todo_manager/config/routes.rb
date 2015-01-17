@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get 'tags/:tag', to: 'tasks#index', as: :tag
   resources :tasks
   resources :tags
   # The priority is based upon order of creation: first created -> highest priority.

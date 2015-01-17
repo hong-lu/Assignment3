@@ -1,7 +1,11 @@
 class TasksController < ApplicationController
 	def index
-    @tasks = Task.all
-  end
+	  if params[:tag]
+	    @tasks = Task.tagged_with(params[:tag])
+	  else
+	    @tasks = Task.all
+	  end
+	end
 
   def show
     @task = Task.find(params[:id])
