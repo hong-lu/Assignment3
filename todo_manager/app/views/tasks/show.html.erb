@@ -4,6 +4,9 @@
 
 <h1><%= @task.title %></h1>
 <hr>
+<strong> Due at:
+  <%= @task.due_date.to_time.strftime('%B %e %l:%M %p') %>
+</strong>
 <p>
   <%= @task.text %>
 </p>
