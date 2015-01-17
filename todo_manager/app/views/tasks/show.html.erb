@@ -7,8 +7,8 @@
       class: 'btn btn-default btn-sm main-action-button' %>
 
 <h1><%= @task.title %></h1>
-<% @task.tag_array.each do |t| %>
-  <span class="label label-primary"> <span class="tag"><%= link_to t, tag_path(t) %></span></span>
+<% @task.tag_array.each do |tag| %>
+  <%= link_to tag, tag_path(tag), class: 'tasks-tag label label-default' %> 
 <% end %>
 <hr>
 <strong> Due at:

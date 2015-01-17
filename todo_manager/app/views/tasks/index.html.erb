@@ -20,7 +20,7 @@
           <td><%= task.due_date %></td>
           <td>
             <% task.tag_array.each do |tag| %>
-              <span class="tasks-tag label label-default"><%= tag %></span>
+              <%= link_to tag, tag_path(tag), class: 'tasks-tag label label-default'%>
             <% end %>
           </td>
           <td class="tasks-action-column">
@@ -45,7 +45,7 @@
       <div class="panel-heading">Tags <%= link_to raw('<i class="fa fa-pencil"></i>'), tags_path, class: 'tags-edit' %></div>
       <div class="panel-body">
         <% Tag.all.each do |tag| %>
-          <span class="tasks-tag label label-default"><%= link_to tag.name, tag_path(tag.name) %></span>
+          <%= link_to tag.name, tag_path(tag.name), class: 'tasks-tag label label-default' %>
         <% end %>
       </div>
     </div>

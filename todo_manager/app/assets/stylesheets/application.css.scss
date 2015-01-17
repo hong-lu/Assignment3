@@ -29,6 +29,11 @@ body {
   min-height: 100%;
 }
 
+table a:not(.btn), 
+.table a:not(.btn) {
+  text-decoration: none;
+}
+
 .container {
   max-width: 960px;
 }
@@ -56,26 +61,6 @@ body {
   }
   tr:hover .tasks-action-column .btn {
     visibility: inherit;
-  }
-}
-
-.tasks-tag {
-  $tag-color: #666;
-  background-color: transparent;
-  border: 1px solid $tag-color;
-  color: $tag-color; 
-  transition: all .5s;
-  a {
-    transition: all .5s;
-    color: $tag-color;
-  }
-  &:hover {
-    background-color: $tag-color;
-    color: #fff;
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
   }
 }
 
