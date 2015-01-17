@@ -14,7 +14,10 @@
 <p>
   <%= @task.text %>
 </p>
-
+<% @task.tag_array.each do |tg| %>
+<span class="label label-info"><%= tg %></span>
+<% end %>
+<br><br>
 <%= link_to raw('<i class="fa fa-pencil"></i> Edit Task'),
       edit_task_path(@task), 
       class: 'btn btn-success btn-sm' %>
