@@ -16,6 +16,7 @@ class TasksController < ApplicationController
 	end
 
 	def create
+		flash[:notice] = "New Task successfully created!"
 	  @task = Task.new(task_params)
 	 
 	  if @task.save
