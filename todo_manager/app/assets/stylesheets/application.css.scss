@@ -30,7 +30,7 @@ body {
 }
 
 .container {
-  max-width: 720px;
+  max-width: 960px;
 }
 
 .tasks-container {
@@ -56,5 +56,37 @@ body {
   }
   tr:hover .tasks-action-column .btn {
     visibility: inherit;
+  }
+}
+
+.tasks-tag {
+  $tag-color: #666;
+  background-color: transparent;
+  border: 1px solid $tag-color;
+  color: $tag-color; 
+  transition: all .5s;
+  a {
+    transition: all .5s;
+    color: $tag-color;
+  }
+  &:hover {
+    background-color: $tag-color;
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+.tags-container {
+  .tags-edit {
+    float: right;
+    display: none;
+  }
+  &:hover {
+    .tags-edit {
+      display: inherit;
+    }
   }
 }

@@ -3,49 +3,51 @@
     class: 'btn btn-sm btn-success main-action-button' %>
 
 <h1>All Tasks</h1>
-
-<hr>
-<table class="table table-striped tasks-table">
-  <tr>
-    <th>Title</th>
-    <th >Text</th>
-    <th>Due</th>
-    <th colspan="2">Tags</th>
-  </tr>
- 
-  <% @tasks.each do |task| %>
-    <tr>
-      <td><%= task.title %></td>
-      <td><%= task.text %></td>
-      <td><%= task.due_date %></td>
-      <td>
-        <% task.tag_array.each do |tg| %>
-          <span class="label label-info"><%= tg %></span>
+<div class="row">
+  <div class="col-md-9">  
+    <table class="table table-striped tasks-table">
+      <tr>
+        <th>Title</th>
+        <th>Text</th>
+        <th>Due</th>
+        <th colspan="2">Tags</th>
+      </tr>
+     
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.title %></td>
+          <td><%= task.text %></td>
+          <td><%= task.due_date %></td>
+          <td>
+            <% task.tag_array.each do |tag| %>
+              <span class="tasks-tag label label-default"><%= tag %></span>
+            <% end %>
+          </td>
+          <td class="tasks-action-column">
+            <%= link_to raw('<i class="fa fa-search"></i>'),
+              task_path(task), 
+              class: 'btn btn-default btn-xs' %>
+            <%= link_to raw('<i class="fa fa-pencil"></i>'), 
+              edit_task_path(task), 
+              class: 'btn btn-default btn-xs' %>
+            <%= link_to raw('<i class="fa fa-trash"></i>'), 
+              task_path(task),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: 'btn btn-default btn-xs' %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-md-3 tags-container">
+    <div class="panel panel-default">
+      <div class="panel-heading">Tags <%= link_to raw('<i class="fa fa-pencil"></i>'), tags_path, class: 'tags-edit' %></div>
+      <div class="panel-body">
+        <% Tag.all.each do |tag| %>
+          <span class="tasks-tag label label-default"><%= link_to tag.name, tag_path(tag.name) %></span>
         <% end %>
-      </td>
-      <td class="tasks-action-column">
-        <%= link_to raw('<i class="fa fa-search"></i>'),
-          task_path(task), 
-          class: 'btn btn-default btn-xs' %>
-        <%= link_to raw('<i class="fa fa-pencil"></i>'), 
-          edit_task_path(task), 
-          class: 'btn btn-default btn-xs' %>
-        <%= link_to raw('<i class="fa fa-trash"></i>'), 
-          task_path(task),
-          method: :delete,
-          data: { confirm: 'Are you sure?' },
-          class: 'btn btn-default btn-xs' %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-
-<%= link_to raw('<i class="fa fa-plus"></i> Manage Tags'), 
-    tags_path, 
-    class: 'btn btn-sm btn-success main-action-button' %>
-<h2>All Tags</h2>
-<hr>
-<% Tag.all.each do |t| %>
-  <span class="tag"><%= link_to t.name, tag_path(t.name) %></span>
-<% end %>
-
+      </div>
+    </div>
+  </div>
+</div>
