@@ -53,6 +53,7 @@ table a:not(.btn),
 
 .main-action-button {
   float: right;
+  margin-left: 10px;
 }
 
 .tasks-table {
@@ -77,5 +78,8 @@ table a:not(.btn),
 }
 
 .tasks-tag{
-  font-size: 85%;
+  font-size: 90%;
+  display: inline-block;
+  margin-bottom: 5px;
+  padding: 6px;
 }
