@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # get 'tasks/tags/:tag(.:format)', to: 'tasks#index', as: :tag
   resources :tasks do
     get 'filter', on: :collection
+    get 'pending', on: :collection
   end
   
   resources :tags

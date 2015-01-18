@@ -1,10 +1,11 @@
+<%= link_to raw('<i class="fa fa-arrow-left"></i> Back'),
+      tasks_path, 
+      class: 'btn btn-default btn-sm main-action-button' %>
 <%= link_to raw('<i class="fa fa-plus"></i> New Task'), 
     new_task_path, 
     class: 'btn btn-sm btn-success main-action-button' %>
-<%= link_to raw('View Pending Tasks'), 
-    pending_tasks_path, 
-    class: 'btn btn-sm btn-primary main-action-button' %>
-<h1>All Tasks </h1>
+
+<h1>Pending Tasks Sorted by Due Date</h1>
 <div class="row">
   <div class="col-md-9">  
     <%= render 'table' %>

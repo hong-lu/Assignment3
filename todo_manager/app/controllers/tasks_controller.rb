@@ -1,11 +1,10 @@
 class TasksController < ApplicationController
 	def index
-	  if params[:tag] 
-	  	@tasks = Tag.find(params[:tag]).tasks
-	  	@tag_name = Tag.find(params[:tag]).name
-	  else
-	    @tasks = Task.all
-	  end
+	  @tasks = Task.all
+	end
+
+	def pending
+		@tasks = Task.order(:due_date)
 	end
 
   def show

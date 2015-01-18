@@ -1,0 +1,10 @@
+<div class="col-md-3 tags-container">
+  <div class="panel panel-default">
+    <div class="panel-heading">Tags <%= link_to raw('<i class="fa fa-pencil"></i>'), tags_path, class: 'tags-edit' %></div>
+    <div class="panel-body">
+      <% Tag.all.each do |tag| %>
+        <%= link_to tag.name, filter_tasks_path(tag.name), class: 'tasks-tag label label-default', style: "background-color: " + tag.color %>
+      <% end %>
+    </div>
+  </div>
+</div>
