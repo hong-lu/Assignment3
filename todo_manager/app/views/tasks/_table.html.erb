@@ -27,8 +27,13 @@
         <%= link_to raw('<i class="fa fa-trash"></i>'), 
           task_path(task),
           method: :delete,
-          data: { confirm: 'Are you sure?' },
+          data: { confirm: 'Are you sure to delete?' },
           class: 'btn btn-default btn-xs' %>
+        <%= link_to raw('<i class="fa fa-check"></i>'), 
+          task_mark_path(task),
+          method: :PATCH,
+          data: { confirm: 'Are you sure that you have completed this task?' },
+          class: 'btn btn-default btn-xs' %>  
       </td>
     </tr>
   <% end %>

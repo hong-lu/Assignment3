@@ -6,7 +6,7 @@ class TasksController < ApplicationController
 	def pending
 		@tasks = []
 		Task.order(:due_date).each do |t|
-			if t.due_date >= Time.now.to_datetime
+			if t.due_date >= Time.now.to_datetime && (!(t.is_complete))
 				@tasks.push(t)
 			end
 		end
@@ -54,6 +54,12 @@ class TasksController < ApplicationController
 
 	def filter
 		@tasks  = Task.tagged_with(params[:format]);
+	end
+
+	def mark
+		@task = Task.find(params[:task_id])
+		@task.update_attribute(:is_complete, true)
+		redirect_to tasks_path
 	end
 
 	private

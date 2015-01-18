@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :tasks do
     get 'filter', on: :collection
     get 'pending', on: :collection
+    patch 'mark'
   end
   
   resources :tags
