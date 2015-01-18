@@ -2,6 +2,7 @@ class TasksController < ApplicationController
 	def index
 	  if params[:tag]
 	    @tasks = Task.tagged_with(params[:tag])
+	    @tag_name = params[:tag]
 	  else
 	    @tasks = Task.all
 	  end
