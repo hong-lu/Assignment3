@@ -7,8 +7,8 @@
       class: 'btn btn-default btn-sm main-action-button' %>
 
 <h1><%= @task.title %></h1>
-<% @task.tag_array.each do |tag| %>
-  <%= link_to tag, tag_path(tag), class: 'tasks-tag label label-default' %> 
+<% @task.tags.each do |tag| %>
+  <%= link_to tag.name, filter_tasks_path(tag.name), class: 'tasks-tag label label-default', style: "background-color: " + tag.color %> 
 <% end %>
 <hr>
 <strong> Due at:
