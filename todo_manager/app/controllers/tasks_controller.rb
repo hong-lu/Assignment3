@@ -4,7 +4,12 @@ class TasksController < ApplicationController
 	end
 
 	def pending
-		@tasks = Task.order(:due_date)
+		@tasks = []
+		Task.order(:due_date).each do |t|
+			if t.due_date >= Time.now.to_datetime
+				@tasks.push(t)
+			end
+		end
 	end
 
   def show
