@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  get 'tasks/tags/:tag', to: 'tasks#index', as: :tag
+  get 'tasks/tags/:tag(.:format)', to: 'tasks#index', as: :tag
   resources :tasks
   resources :tags
+  # get 'tasks/tags/:id', to: "tags#index"
+  # patch 'tasks/tags/:id(.:format)',to: 'tags#update'
+  # put 'tasks/tags/:id(.:format)' , to: 'tags#update'
+  # delete 'tasks/tags/:id(.:format)', to: 'tags#destroy'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
