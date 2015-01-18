@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'tasks/tags/:tag(.:format)', to: 'tasks#index', as: :tag
-  resources :tasks
+  # get 'tasks/tags/:tag(.:format)', to: 'tasks#index', as: :tag
+  resources :tasks do
+    get 'filter', on: :collection
+  end
+
   resources :tags
   # get 'tasks/tags/:id', to: "tags#index"
   # patch 'tasks/tags/:id(.:format)',to: 'tags#update'

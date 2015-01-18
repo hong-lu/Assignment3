@@ -48,6 +48,10 @@ class TasksController < ApplicationController
 	  redirect_to tasks_path
 	end
 
+	def filter
+		@tasks  = Task.tagged_with(params[:format]);
+	end
+
 	private
 	  def task_params
 	    params.require(:task).permit(:title, :text, :due_date, :tag_list)
