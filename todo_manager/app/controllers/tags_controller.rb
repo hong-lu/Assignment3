@@ -10,7 +10,7 @@ class TagsController < ApplicationController
   def new
   	@tag = Tag.new
   end
-  
+
 	def edit
 	  @tag = Tag.find(params[:id])
 	end
@@ -35,6 +35,6 @@ class TagsController < ApplicationController
 
 	private
 	  def tag_params
-	    params.require(:name).permit(:color)
+	    params.require(:tag).permit(:name, :color)
 	  end
 end
