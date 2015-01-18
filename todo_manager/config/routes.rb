@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :tasks do
     get 'filter', on: :collection
   end
-
+  
   resources :tags
   # get 'tasks/tags/:id', to: "tags#index"
   # patch 'tasks/tags/:id(.:format)',to: 'tags#update'

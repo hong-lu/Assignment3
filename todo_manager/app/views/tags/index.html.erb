@@ -8,17 +8,12 @@
 <h1>Manage Tags</h1>
 <hr>
 <table class="table table-striped tasks-table">
-  <tr>
-    <th>Name</th>
-    <th colspan="2">Color</th>
-  </tr>
- 
   <% @tags.each do |tag| %>
     <tr>
-      <td><%= tag.name %></td>
-      <td><%= tag.color %></td>
+      <td>
+        <%= link_to tag.name, filter_tasks_path(tag.name), class: 'tasks-tag label label-default', style: "background-color: " + tag.color %>
+      </td>
       <td class="tasks-action-column">
-
         <%= link_to raw('<i class="fa fa-pencil"></i>'), 
           edit_tag_path(tag), 
           class: 'btn btn-default btn-xs' %>

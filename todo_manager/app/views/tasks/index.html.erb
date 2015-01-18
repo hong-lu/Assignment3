@@ -13,7 +13,7 @@ with Tag
     <table class="table table-striped tasks-table">
       <tr>
         <th>Title</th>
-        <th>Text</th>
+        <th>Description</th>
         <th>Due</th>
         <th colspan="2">Tags</th>
       </tr>
@@ -24,8 +24,8 @@ with Tag
           <td><%= task.text %></td>
           <td><%= task.due_date %></td>
           <td>
-            <% task.tag_array.each do |tag| %>
-              <%= link_to tag, filter_tasks_path(tag), class: 'tasks-tag label label-default'%>
+            <% task.tags.each do |tag| %>
+              <%= link_to tag.name, filter_tasks_path(tag.name), class: 'tasks-tag label label-default', style: "background-color: " + tag.color %>
             <% end %>
           </td>
           <td class="tasks-action-column">

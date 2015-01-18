@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150118005033) do
+ActiveRecord::Schema.define(version: 20150118064150) do
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20150118005033) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "color"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "color",      default: "#95a5a6"
     t.string   "string"
   end
 

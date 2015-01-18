@@ -19,7 +19,7 @@ class TagsController < ApplicationController
 	  @tag = Tag.find(params[:id])
 	 
 	  if @tag.update(tag_params)
-	    redirect_to @tag
+	    redirect_to tags_path
 	  else
 	    render 'edit'
 	  end

@@ -1,3 +1,6 @@
+<%= link_to raw('<i class="fa fa-arrow-left"></i> Back'),
+      tasks_path, 
+      class: 'btn btn-default btn-sm main-action-button' %>
 <%= link_to raw('<i class="fa fa-plus"></i> New Task'), 
     new_task_path, 
     class: 'btn btn-sm btn-success main-action-button' %>
@@ -13,7 +16,7 @@ with Tag
     <table class="table table-striped tasks-table">
       <tr>
         <th>Title</th>
-        <th>Text</th>
+        <th>Description</th>
         <th>Due</th>
         <th colspan="2">Tags</th>
       </tr>
