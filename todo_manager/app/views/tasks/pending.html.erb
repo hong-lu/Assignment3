@@ -6,6 +6,8 @@
     class: 'btn btn-sm btn-success main-action-button' %>
 
 <h1>Pending Tasks <small>Sorted by Due Date</small> </h1>
+<h4 class="text1">Today is : <%= Time.now.strftime("%m/%d/%Y") %> </h4>
+<hr>
 <div class="row">
   <div class="col-md-9">  
     <%= render 'table' %>
