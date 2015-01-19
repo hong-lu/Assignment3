@@ -58,7 +58,11 @@ class TasksController < ApplicationController
 
 	def mark
 		@task = Task.find(params[:task_id])
-		@task.update_attribute(:is_complete, true)
+		if (@task.is_complete)
+			@task.update_attribute(:is_complete, false)
+		else
+			@task.update_attribute(:is_complete, true)
+		end
 		redirect_to tasks_path
 	end
 
