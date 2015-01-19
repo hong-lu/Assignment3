@@ -4,14 +4,23 @@
 <%= link_to raw('<i class="fa fa-plus"></i> New Tag'), 
     new_tag_path, 
     class: 'btn btn-sm btn-success main-action-button' %>
-
+<% Tag.delete_empty_tags %>
 <h1>Manage Tags</h1>
 <hr>
 <table class="table table-striped tasks-table">
+  <tr>
+    <th>Tag Name</th>
+    <th colspan="2">Tasks</th>
+  </tr>
   <% @tags.each do |tag| %>
     <tr>
       <td>
         <%= link_to tag.name, filter_tasks_path(tag.name), class: 'tasks-tag label label-default', style: "background-color: " + tag.color %>
+      </td>
+      <td>
+        <% tag.tasks.each do |task| %>
+        <%= link_to task.title+';', task_path(task)%>
+        <% end %>
       </td>
       <td class="tasks-action-column">
         <%= link_to raw('<i class="fa fa-pencil"></i>'), 
