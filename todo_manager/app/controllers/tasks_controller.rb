@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  respond_to :html, :js
+
 	def index
 	  @tasks = Task.all
 	end
@@ -46,10 +48,11 @@ class TasksController < ApplicationController
 	end
 
 	def destroy
+		@tasks = Task.all
 	  @task = Task.find(params[:id])
 	  @task.destroy
 	  Tag.delete_empty_tags
-	  redirect_to tasks_path
+	  # redirect_to tasks_path
 	end
 
 	def filter
@@ -57,13 +60,14 @@ class TasksController < ApplicationController
 	end
 
 	def mark
+		@tasks = Task.all
 		@task = Task.find(params[:task_id])
 		if (@task.is_complete)
 			@task.update_attribute(:is_complete, false)
 		else
 			@task.update_attribute(:is_complete, true)
 		end
-		redirect_to tasks_path
+		# redirect_to tasks_path
 	end
 
 	private
