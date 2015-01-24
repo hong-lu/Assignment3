@@ -1,9 +1,6 @@
 class TasksController < ApplicationController
+	before_action :all_tasks, only: [:index, :create, :update, :mark, :destroy]
   respond_to :html, :js
-
-	def index
-	  @tasks = Task.all
-	end
 
 	def pending
 		@tasks = []
@@ -30,9 +27,7 @@ class TasksController < ApplicationController
 		flash[:notice] = "New Task successfully created!"
 	  @task = Task.new(task_params)
 	 
-	  if @task.save
-	    redirect_to @task
-	  else
+	  if (!@task.save)
 	    render 'new'
 	   end
 	end
@@ -48,7 +43,6 @@ class TasksController < ApplicationController
 	end
 
 	def destroy
-		@tasks = Task.all
 	  @task = Task.find(params[:id])
 	  @task.destroy
 	  Tag.delete_empty_tags
@@ -60,7 +54,6 @@ class TasksController < ApplicationController
 	end
 
 	def mark
-		@tasks = Task.all
 		@task = Task.find(params[:task_id])
 		if (@task.is_complete)
 			@task.update_attribute(:is_complete, false)
@@ -71,6 +64,11 @@ class TasksController < ApplicationController
 	end
 
 	private
+
+	  def all_tasks
+      @tasks = Task.all
+    end
+    
 	  def task_params
 	    params.require(:task).permit(:title, :text, :due_date, :tag_list)
 	  end

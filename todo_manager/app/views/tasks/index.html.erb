@@ -1,13 +1,16 @@
 <%= link_to raw('<i class="fa fa-plus"></i> New Task'), 
-    new_task_path, 
+    new_task_path, remote: true,
     class: 'btn btn-sm btn-success main-action-button' %>
 <%= link_to raw('View Pending Tasks'), 
-    pending_tasks_path, 
+    pending_tasks_path, remote: true,
     class: 'btn btn-sm btn-primary main-action-button' %>
+<div id="task-form" style="display:none;"></div>
 <h1>All Tasks </h1>
 <div class="row">
-  <div class="col-md-9" id='tasks_table'>  
+  <div class="col-md-9" id='tasks-table'>  
     <%= render 'table' %>
   </div>
-  <%= render 'tagCloud' %>
+  <div id='tag-cloud'>  
+    <%= render 'tagCloud' %>
+  </div>
 </div>

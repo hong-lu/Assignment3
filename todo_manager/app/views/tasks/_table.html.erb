@@ -24,7 +24,7 @@
           class: 'btn btn-default btn-xs' %>
         <%= link_to raw('<i class="fa fa-trash"></i>'), 
           task_path(task),
-          method: :delete, remote: true,
+          method: :delete, 
           data: { confirm: 'Are you sure to delete?' },
           class: 'btn btn-default btn-xs' %>
         <% if (task.is_complete) %>
