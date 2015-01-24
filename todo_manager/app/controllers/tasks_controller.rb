@@ -52,7 +52,7 @@ class TasksController < ApplicationController
 	  @task = Task.find(params[:id])
 	  @task.destroy
 	  Tag.delete_empty_tags
-	  # redirect_to tasks_path
+	  redirect_to tasks_path
 	end
 
 	def filter
