@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('click', '.js-close', function () {
+  $('#task-form').slideUp(300);
+});

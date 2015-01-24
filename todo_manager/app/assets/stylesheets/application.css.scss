@@ -77,22 +77,23 @@ table a:not(.btn),
   }
 }
 
-.tasks-tag{
+.tasks-tag {
   font-size: 90%;
   display: inline-block;
   margin-bottom: 5px;
   padding: 6px;
 }
 
-.text1{
+.text1 {
   color: red;
 }
 
-.text2{
+.text2 {
   text-decoration: underscore;
 }
 
-.task-form{
+.task-form {
+  display: none;
   padding: 5%;
   margin: 5%;
   border: 1px solid black;
