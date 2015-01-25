@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
-  validates :name, format: { with: /\A[a-zA-Z0-9_-]+\z/,
+  validates :name, format: { with: /\A[a-zA-Z0-9_ -]+\z/,
   message: "only allows numbers and letters" }
 
   has_many :taggings
