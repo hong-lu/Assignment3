@@ -1,0 +1,21 @@
+<%= link_to raw('<i class="fa fa-arrow-left"></i> Back'),
+      tasks_path, 
+      class: 'btn btn-default btn-sm main-action-button' %>
+<%= link_to raw('<i class="fa fa-plus"></i> New Task'), 
+    new_task_path, remote: true,
+    class: 'btn btn-sm btn-success main-action-button' %>
+<% if (@tasks != []) %>
+<h1>All Tasks with Tag " <%= params[:format] %> " </h1>
+<div class="row">
+  <div class="col-md-9">  
+    <div id='tasks-table'><%= render 'table' %></div>
+    <div class="task-form" id="task-form"></div>
+  </div>
+  <div id='tag-cloud'>  
+    <%= render 'tagCloud' %>
+  </div>
+</div>
+<% else %>
+<br><br>
+<div class="alert alert-warning"><h1> No task has tag " <%= params[:format] %> " </h1></div>
+<% end %>

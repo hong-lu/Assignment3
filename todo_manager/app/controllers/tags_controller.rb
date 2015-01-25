@@ -1,11 +1,6 @@
 class TagsController < ApplicationController
-	def index
-		@tags = Tag.all
-	end
-
-	def show
-  	@tag = Tag.find(params[:id])
-	end
+	before_action :all_tags, only: [:index, :create, :update, :destroy]
+	respond_to :html, :js
 
 	def new
 		@tag = Tag.new
@@ -45,6 +40,10 @@ class TagsController < ApplicationController
 	end
 
 	private
+		def all_tags
+      @tags = Tag.all
+  	end
+
 	  def tag_params
 	    params.require(:tag).permit(:name, :color)
 	  end

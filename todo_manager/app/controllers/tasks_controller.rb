@@ -11,10 +11,6 @@ class TasksController < ApplicationController
 		end
 	end
 
-  def show
-    @task = Task.find(params[:id])
-  end
-
   def new
   	@task = Task.new
   end
@@ -50,7 +46,7 @@ class TasksController < ApplicationController
 	end
 
 	def filter
-		@tasks  = Task.tagged_with(params[:format]);
+		@tasks  = Task.tagged_with(params[:format])
 	end
 
 	def mark
@@ -67,7 +63,7 @@ class TasksController < ApplicationController
 
 	  def all_tasks
       @tasks = Task.all
-    end
+  	end
 
 	  def task_params
 	    params.require(:task).permit(:title, :text, :due_date, :tag_list)

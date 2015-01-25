@@ -17,4 +17,5 @@
 
 $(document).on('click', '.js-close', function () {
   $('#task-form').slideUp(300);
+  $('#tag-form').slideUp(300);
 });

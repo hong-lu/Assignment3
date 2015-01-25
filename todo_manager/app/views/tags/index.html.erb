@@ -16,6 +16,8 @@
     <tr>
       <td>
         <%= link_to tag.name, filter_tasks_path(tag.name), class: 'tasks-tag label label-default', style: "background-color: " + tag.color %>
+        <br>
+        <div class="task-form" id="tag-form"></div>
       </td>
       <td>
         <% tag.tasks.each do |task| %>
@@ -24,7 +26,7 @@
       </td>
       <td class="tasks-action-column">
         <%= link_to raw('<i class="fa fa-pencil"></i>'), 
-          edit_tag_path(tag), 
+          edit_tag_path(tag), remote: true,
           class: 'btn btn-default btn-xs' %>
         <%= link_to raw('<i class="fa fa-trash"></i>'), 
           tag_path(tag),

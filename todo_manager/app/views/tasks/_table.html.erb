@@ -12,7 +12,7 @@
       <td><%= task.due_date %></td>
       <td>
         <% task.tags.each do |tag| %>
-          <%= link_to tag.name, filter_tasks_path(tag.name), remote: true, class: 'tasks-tag label label-default', style: "background-color: " + tag.color %>
+          <%= link_to tag.name, filter_tasks_path(tag.name), class: 'tasks-tag label label-default', style: "background-color: " + tag.color %>
         <% end %>
       </td>
       <td class="tasks-action-column">
