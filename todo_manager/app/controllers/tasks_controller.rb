@@ -36,7 +36,7 @@ class TasksController < ApplicationController
 	  @task = Task.find(params[:id])
 	 
 	  if @task.update(task_params)
-	    redirect_to @task
+	    # redirect_to @task
 	  else
 	    render 'edit'
 	  end
@@ -68,7 +68,7 @@ class TasksController < ApplicationController
 	  def all_tasks
       @tasks = Task.all
     end
-    
+
 	  def task_params
 	    params.require(:task).permit(:title, :text, :due_date, :tag_list)
 	  end

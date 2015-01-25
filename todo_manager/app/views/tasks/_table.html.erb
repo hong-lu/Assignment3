@@ -12,13 +12,10 @@
       <td><%= task.due_date %></td>
       <td>
         <% task.tags.each do |tag| %>
-          <%= link_to tag.name, filter_tasks_path(tag.name), class: 'tasks-tag label label-default', style: "background-color: " + tag.color %>
+          <%= link_to tag.name, filter_tasks_path(tag.name), remote: true, class: 'tasks-tag label label-default', style: "background-color: " + tag.color %>
         <% end %>
       </td>
       <td class="tasks-action-column">
-        <%= link_to raw('<i class="fa fa-search"></i>'),
-          task_path(task), remote: true,
-          class: 'btn btn-default btn-xs' %>
         <%= link_to raw('<i class="fa fa-pencil"></i>'), 
           edit_task_path(task), remote: true,
           class: 'btn btn-default btn-xs' %>
