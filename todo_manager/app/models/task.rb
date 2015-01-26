@@ -35,14 +35,6 @@ class Task < ActiveRecord::Base
     self.tags = names.split(",").map do |n|
       Tag.find_or_create_by(name: n.strip)
     end
-    # if (/\A[a-zA-Z0-9_ -,]+\z/ =~ names) != nil
-    #   self.tags = names.split(",").map do |n|
-    #     Tag.where(name: n.strip).first_or_create
-    #   end
-    # else
-    #   self.errors.add(:base, "This person is evil")
-    #   raise "Unable to remove business."
-    # end
   end
 
 end

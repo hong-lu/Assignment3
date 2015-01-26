@@ -35,6 +35,9 @@ class TasksController < ApplicationController
 	  else
 	    render 'edit'
 	  end
+	rescue
+		@task.errors[:base] << "Error in tags. Only alphanumeric characters are allowed!"
+		render 'edit'
 	end
 
 	def destroy
