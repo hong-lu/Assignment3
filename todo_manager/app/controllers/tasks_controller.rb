@@ -36,7 +36,7 @@ class TasksController < ApplicationController
 	    render 'edit'
 	  end
 	rescue
-		@task.errors[:base] << "Error in tags. Only alphanumeric characters are allowed!"
+		@task.errors[:base] << "Error in tags name. Only allow alphanumeric characters, white space and underscore"
 		render 'edit'
 	end
 
